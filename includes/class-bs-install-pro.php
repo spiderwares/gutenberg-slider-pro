@@ -7,21 +7,21 @@
 //Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-if ( ! class_exists( 'GTBS_Install_Pro' ) ) :
+if ( ! class_exists( 'BS_Install_Pro' ) ) :
 
     /**
-     * GTBS_Install_Pro Class
+     * BS_Install_Pro Class
      *
      * Handles installation processes like creating database tables,
      * setting up roles, and creating necessary pages on plugin activation.
      */
-    class GTBS_Install_Pro {
+    class BS_Install_Pro {
 
         /**
          * Hook into WordPress actions and filters.
          */
         public static function init() {
-            add_filter( 'plugin_action_links_' . plugin_basename( GTBS_PRO_FILE ), array( __CLASS__, 'plugin_action_links' ) );
+            add_filter( 'plugin_action_links_' . plugin_basename( BS_PRO_FILE ), array( __CLASS__, 'plugin_action_links' ) );
         }
 
         public static function install() {
@@ -40,15 +40,15 @@ if ( ! class_exists( 'GTBS_Install_Pro' ) ) :
             $action_links = array(
                 'manage_sldier' => sprintf(
                     '<a href="%s" aria-label="%s">%s</a>',
-                    admin_url( 'edit.php?post_type=gtbs_slider' ),
-                    esc_attr__( 'Manage Sliders', 'gutenberg-pro-slider' ),
-                    esc_html__( 'Manage Sliders', 'gutenberg-pro-slider' )
+                    admin_url( 'edit.php?post_type=bs_slider' ),
+                    esc_attr__( 'Manage Sliders', 'block-slider-pro' ),
+                    esc_html__( 'Manage Sliders', 'block-slider-pro' )
                 ),
             );
             return array_merge( $action_links, $links );
         }
     }
 
-    GTBS_Install_Pro::init();
+    BS_Install_Pro::init();
 
 endif;

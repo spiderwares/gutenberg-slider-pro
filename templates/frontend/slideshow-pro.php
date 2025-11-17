@@ -3,20 +3,43 @@
 //Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-if ( ! empty( $image_ids ) && is_array( $image_ids ) ) : 
-?>
-
-<div class="gtbs-swiper swiper gtbs-swiper-thumbs-gallery">
-    <div class="swiper-wrapper">
-        <?php foreach ( $image_ids as $image_id ) : ?>
-            <div class="swiper-slide">
-                <img 
-                    src="<?php echo esc_url( wp_get_attachment_image_url( $image_id, 'thumbnail' ) ); ?>" 
-                    alt="<?php echo esc_attr( get_post_meta( $image_id, '_wp_attachment_image_alt', true ) ); ?>"
-                    style="width: <?php echo esc_attr( $thumb_width ); ?>px; height: <?php echo esc_attr( $thumb_height ); ?>px; object-fit: cover;"
-                />
-            </div>
-        <?php endforeach; ?>
+/**
+ * Thumbnail gallery template.
+ *
+ * @param array $args Array of arguments.
+ * @return string HTML output.
+ */
+if ( empty( $thumb_gallery ) ) :
+    ?>
+    <div class="bs-swiper-thumbs-gallery swiper">
+        <div class="swiper-wrapper">
+            <?php if ( $hasSlides ) :
+                foreach ( $slides as $slide_id => $html ) :
+                    $thumb_image_id = get_post_thumbnail_id( $slide_id );
+                    $thumb_url = $thumb_image_id ? wp_get_attachment_image_url( $thumb_image_id, array( $thumb_width, $thumb_height ) ) : '';
+                    if ( ! $thumb_url ) :
+                        $blocks = parse_blocks( $html );
+                        foreach ( $blocks as $block ) :
+                            if ( isset( $block['attrs']['id'] ) ) :
+                                $thumb_url = wp_get_attachment_image_url( $block['attrs']['id'], array( $thumb_width, $thumb_height ) );
+                                if ( $thumb_url ) break;
+                            endif;
+                        endforeach;
+                    endif;
+                    if ( $thumb_url ) : ?>
+                        <div class="swiper-slide">
+                            <img src="<?php echo esc_url( $thumb_url ); ?>" alt="" style="width: <?php echo esc_attr( $thumb_width ); ?>px; height: <?php echo esc_attr( $thumb_height ); ?>px; object-fit: cover;">
+                        </div>
+                    <?php endif;
+                endforeach;
+            elseif ( $hasImages ) :
+                foreach( $imageIDs as $imageID ) : ?>
+                    <div class="swiper-slide">
+                        <img src="<?php echo esc_url( wp_get_attachment_image_url( $imageID, array( $thumb_width, $thumb_height ) ) ); ?>" alt="" style="width: <?php echo esc_attr( $thumb_width ); ?>px; height: <?php echo esc_attr( $thumb_height ); ?>px; object-fit: cover;">
+                    </div>
+                <?php endforeach;
+            endif; ?>
+        </div>
     </div>
-</div>
-<?php endif;
+    <?php
+endif;

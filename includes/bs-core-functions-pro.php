@@ -1,6 +1,6 @@
 <?php
 /**
- * Gutenberg Pro Slider Pro Core Functions
+ * Block Slider Pro Core Functions
  *
  * General core functions available for the Pro version.
  */
@@ -8,7 +8,7 @@
 //Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-if ( ! function_exists( 'gtbs_get_template_pro' ) ) :
+if ( ! function_exists( 'bs_get_template_pro' ) ) :
 
     /**
      * Loads a template from the Pro version template directory.
@@ -19,11 +19,11 @@ if ( ! function_exists( 'gtbs_get_template_pro' ) ) :
      *
      * @return void|WP_Error
      */
-    function gtbs_get_template_pro( $template_name, $args = array(), $template_path = '' ) {
+    function bs_get_template_pro( $template_name, $args = array(), $template_path = '' ) {
 
         // Default Pro template path
         if ( empty( $template_path ) ) :
-            $template_path = GTBS_PRO_PATH . '/templates/';
+            $template_path = BS_PRO_PATH . '/templates/';
         endif;
 
         $template = $template_path . $template_name;
@@ -33,13 +33,13 @@ if ( ! function_exists( 'gtbs_get_template_pro' ) ) :
                 'error',
                 sprintf(
                     // translators: %s: The full path to the missing template file.
-                    esc_html__( '%s does not exist.', 'gutenberg-pro-slider' ),
+                    esc_html__( '%s does not exist.', 'block-slider-pro' ),
                     '<code>' . esc_html( $template ) . '</code>'
                 )
             );
         endif;
 
-        do_action( 'gtbs_pro_before_template_part', $template, $args, $template_path );
+        do_action( 'BS_PRO_before_template_part', $template, $args, $template_path );
 
         if ( ! empty( $args ) && is_array( $args ) ) :
             extract( $args );
@@ -47,7 +47,7 @@ if ( ! function_exists( 'gtbs_get_template_pro' ) ) :
 
         include $template;
 
-        do_action( 'gtbs_pro_after_template_part', $template, $args, $template_path );
+        do_action( 'BS_PRO_after_template_part', $template, $args, $template_path );
     }
 
 endif;

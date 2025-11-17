@@ -1,7 +1,8 @@
 'use strict';
+
 jQuery(function ($) {
 
-    class GTBS_Frontend_Pro {
+    class BS_Frontend_Pro {
 
         constructor() {
             this.init();
@@ -12,7 +13,7 @@ jQuery(function ($) {
         }
 
         extendSliders() {
-            $('.gtbs-swiper').each((index, element) => {
+            $('.bs-swiper').each((index, element) => {
                 const slider = $(element),
                     rawOptions = slider.attr('data-options');
 
@@ -32,7 +33,6 @@ jQuery(function ($) {
                 const updatedOptions = $.extend({}, options, {
                     loop:           options.control_loop_slider == '1' || options.control_loop_slider === true,
                     speed:          parseInt(options.control_slide_speed, 10) || 400,
-                    spaceBetween:   parseInt(options.control_slide_space, 10) || 10,
                     slidesPerGroup: options.enable_slides_group ? parseInt(options.slides_per_group, 10) || 1 : 1,
                     zoom:           options.zoom_images == '1' || options.zoom_images === true,
                     keyboard: {
@@ -80,17 +80,17 @@ jQuery(function ($) {
                 }
 
                 const scrollbar = slider.find('.swiper-scrollbar');
-                slider.removeClass('gtbs-scrollbar-top gtbs-scrollbar-left gtbs-scrollbar-right');
+                slider.removeClass('bs-scrollbar-top bs-scrollbar-left bs-scrollbar-right');
 
                 if (options.scrollbar_position === 'top') {
                     scrollbar.prependTo(slider); 
-                    slider.addClass('gtbs-scrollbar-top');
+                    slider.addClass('bs-scrollbar-top');
                 } else if (options.scrollbar_position === 'left' && updatedOptions.direction === 'vertical') {
                     scrollbar.appendTo(slider);
-                    slider.addClass('gtbs-scrollbar-left');
+                    slider.addClass('bs-scrollbar-left');
                 } else if (options.scrollbar_position === 'right' && updatedOptions.direction === 'vertical') {
                     scrollbar.appendTo(slider);
-                    slider.addClass('gtbs-scrollbar-right');
+                    slider.addClass('bs-scrollbar-right');
                 }
 
                 if (updatedOptions.direction === 'vertical') {
@@ -171,6 +171,6 @@ jQuery(function ($) {
 
     }
 
-    new GTBS_Frontend_Pro();
+    new BS_Frontend_Pro();
 
 });
