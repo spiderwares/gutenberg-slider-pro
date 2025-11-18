@@ -1,8 +1,8 @@
 /*--------------------------- Arrow Navigation Style ---------------------------*/
 
 /* === Style 5 === */
-.bs-swiper-arrow-style5 .swiper-button-next,
-.bs-swiper-arrow-style5 .swiper-button-prev {
+.wpsbs-swiper-arrow-style5 .swiper-button-next,
+.wpsbs-swiper-arrow-style5 .swiper-button-prev {
     width: 40px;
     height: 40px;
     display: flex;
@@ -17,28 +17,28 @@
     transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-.bs-swiper-arrow-style5 .swiper-button-prev::after,
-.bs-swiper-arrow-style5 .swiper-button-next::after {
+.wpsbs-swiper-arrow-style5 .swiper-button-prev::after,
+.wpsbs-swiper-arrow-style5 .swiper-button-next::after {
     font-weight: bold;
     font-size: inherit;
 }
 
-.bs-swiper-arrow-style5 .swiper-button-prev::after {
+.wpsbs-swiper-arrow-style5 .swiper-button-prev::after {
     content: '←';
 }
 
-.bs-swiper-arrow-style5 .swiper-button-next::after {
+.wpsbs-swiper-arrow-style5 .swiper-button-next::after {
     content: '→';
 }
 
-.bs-swiper-arrow-style5 .swiper-button-prev:hover,
-.bs-swiper-arrow-style5 .swiper-button-next:hover {
+.wpsbs-swiper-arrow-style5 .swiper-button-prev:hover,
+.wpsbs-swiper-arrow-style5 .swiper-button-next:hover {
     color: #333;
 }
 
 /* === Custom Arrow === */
-.bs-swiper-arrow-custom .swiper-button-next,
-.bs-swiper-arrow-custom .swiper-button-prev {
+.wpsbs-swiper-arrow-custom .swiper-button-next,
+.wpsbs-swiper-arrow-custom .swiper-button-prev {
     border: 2px solid #fff;
     border-radius: inherit;
     width: 33px;
@@ -48,8 +48,8 @@
     justify-content: center;
 }
 
-.bs-swiper-arrow-custom .swiper-button-next:after, 
-.bs-swiper-arrow-custom .swiper-button-prev:after {
+.wpsbs-swiper-arrow-custom .swiper-button-next:after, 
+.wpsbs-swiper-arrow-custom .swiper-button-prev:after {
     font-size: inherit;
 }
 
@@ -57,30 +57,30 @@
 
 /*--------------------------- Scrollbar Control ---------------------------*/
 
-.bs-scrollbar.swiper-scrollbar {
+.wpsbs-scrollbar.swiper-scrollbar {
     background-color: #fff;
     height: 8px;
     border-radius: 4px;
 }
 
-.bs-scrollbar-drag.swiper-scrollbar-drag {
+.wpsbs-scrollbar-drag.swiper-scrollbar-drag {
     background: #999999; 
     border-radius: 4px;
     cursor: pointer;
 }
 
-.bs-scrollbar-wrapper {
+.wpsbs-scrollbar-wrapper {
     margin-top: 10px;
 }
 
-.bs-scrollbar-top .swiper-scrollbar {
+.wpsbs-scrollbar-top .swiper-scrollbar {
     top: 0 !important;
     bottom: auto !important;
     margin-top: 0;
     margin-bottom: 0;
 }
 
-.bs-scrollbar-left .swiper-scrollbar {
+.wpsbs-scrollbar-left .swiper-scrollbar {
     left: 0 !important;
     right: auto !important;
     width: 8px;
@@ -88,7 +88,7 @@
     position: absolute;
 }
 
-.bs-scrollbar-right .swiper-scrollbar {
+.wpsbs-scrollbar-right .swiper-scrollbar {
     right: 0 !important;
     left: auto !important;
     width: 8px;
@@ -96,8 +96,8 @@
     position: absolute;
 }
 
-.bs-scrollbar-left .swiper-scrollbar-drag,
-.bs-scrollbar-right .swiper-scrollbar-drag {
+.wpsbs-scrollbar-left .swiper-scrollbar-drag,
+.wpsbs-scrollbar-right .swiper-scrollbar-drag {
     width: 100%;
 }
 
@@ -105,12 +105,12 @@
 
 /*--------------------------- RTL ---------------------------*/
 
-.bs-swiper[dir="rtl"] .swiper-button-next {
+.wpsbs-swiper[dir="rtl"] .swiper-button-next {
     left: 0;
     right: auto;
 }
 
-.bs-swiper[dir="rtl"] .swiper-button-prev {
+.wpsbs-swiper[dir="rtl"] .swiper-button-prev {
     right: 0;
     left: auto;
 }
@@ -118,7 +118,7 @@
 
 /*--------------------------- Thumbs Gallery ---------------------------*/
 
-.bs-swiper-thumbs-gallery .swiper-wrapper {
+.wpsbs-swiper-thumbs-gallery .swiper-wrapper {
     display: flex;
     justify-content: center; 
     align-items: center;
@@ -126,7 +126,7 @@
     margin: 0 auto;
 }
 
-.bs-swiper-thumbs-gallery .swiper-slide {
+.wpsbs-swiper-thumbs-gallery .swiper-slide {
     opacity: 0.5;
     border: 2px solid transparent;
     width: auto !important;
@@ -138,11 +138,11 @@
     box-sizing: border-box;
 }
 
-.bs-swiper-thumbs-gallery .swiper-slide-thumb-active {
+.wpsbs-swiper-thumbs-gallery .swiper-slide-thumb-active {
     opacity: 1;
 }
 
-.bs-swiper-thumbs-gallery img {
+.wpsbs-swiper-thumbs-gallery img {
     width: 100%;
     height: 100%;
     object-fit: cover;

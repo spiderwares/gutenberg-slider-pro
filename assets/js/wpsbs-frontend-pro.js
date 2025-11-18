@@ -13,7 +13,7 @@ jQuery(function ($) {
         }
 
         extendSliders() {
-            $('.bs-swiper').each((index, element) => {
+            $('.wpsbs-swiper').each((index, element) => {
                 const slider = $(element),
                     rawOptions = slider.attr('data-options');
 
@@ -80,17 +80,17 @@ jQuery(function ($) {
                 }
 
                 const scrollbar = slider.find('.swiper-scrollbar');
-                slider.removeClass('bs-scrollbar-top bs-scrollbar-left bs-scrollbar-right');
+                slider.removeClass('wpsbs-scrollbar-top wpsbs-scrollbar-left wpsbs-scrollbar-right');
 
                 if (options.scrollbar_position === 'top') {
                     scrollbar.prependTo(slider); 
-                    slider.addClass('bs-scrollbar-top');
+                    slider.addClass('wpsbs-scrollbar-top');
                 } else if (options.scrollbar_position === 'left' && updatedOptions.direction === 'vertical') {
                     scrollbar.appendTo(slider);
-                    slider.addClass('bs-scrollbar-left');
+                    slider.addClass('wpsbs-scrollbar-left');
                 } else if (options.scrollbar_position === 'right' && updatedOptions.direction === 'vertical') {
                     scrollbar.appendTo(slider);
-                    slider.addClass('bs-scrollbar-right');
+                    slider.addClass('wpsbs-scrollbar-right');
                 }
 
                 if (updatedOptions.direction === 'vertical') {

@@ -6,12 +6,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Thumbnail gallery template.
  *
- * @param array $args Array of arguments.
- * @return string HTML output.
  */
 if ( empty( $thumb_gallery ) ) :
     ?>
-    <div class="bs-swiper-thumbs-gallery swiper">
+    <div class="wpsbs-swiper-thumbs-gallery swiper">
         <div class="swiper-wrapper">
             <?php if ( $hasSlides ) :
                 foreach ( $slides as $slide_id => $html ) :
